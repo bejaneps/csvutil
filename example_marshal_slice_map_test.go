@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/jszwec/csvutil"
+	"github.com/bejaneps/csvutil"
 )
 
 type Strings []string

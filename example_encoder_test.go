@@ -5,7 +5,7 @@ import (
 	"encoding/csv"
 	"fmt"
 
-	"github.com/jszwec/csvutil"
+	"github.com/bejaneps/csvutil"
 )
 
 func ExampleEncoder_Encode() {
