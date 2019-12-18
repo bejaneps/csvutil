@@ -42,7 +42,10 @@ func decodeIntN(bits int) decodeFunc {
 	return func(s string, v reflect.Value) error {
 		n, err := strconv.ParseInt(s, 10, bits)
 		if err != nil {
-			return &UnmarshalTypeError{Value: s, Type: v.Type()}
+            //useless for 'unknown' type in .csv file
+			//return &UnmarshalTypeError{Value: s, Type: v.Type()}
+            v.SetInt(0)
+            return nil
 		}
 		v.SetInt(n)
 		return nil
@@ -53,7 +56,10 @@ func decodeUintN(bits int) decodeFunc {
 	return func(s string, v reflect.Value) error {
 		n, err := strconv.ParseUint(s, 10, bits)
 		if err != nil {
-			return &UnmarshalTypeError{Value: s, Type: v.Type()}
+            //useless for 'unknown' type in .csv file
+			//return &UnmarshalTypeError{Value: s, Type: v.Type()}
+            v.SetUint(0)
+            return nil
 		}
 		v.SetUint(n)
 		return nil
